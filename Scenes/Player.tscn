@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu36twabygvsk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qbkls"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rpqav"]
+radius = 0.25674
+height = 0.99634
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Navigation" type="Node3D" parent="."]
+
+[node name="ForwardRay" type="RayCast3D" parent="Navigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.300031, 0)
+target_position = Vector3(0.5, 0, 0)
+
+[node name="DownRay" type="RayCast3D" parent="Navigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.300031, 0)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_qbkls")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rpqav")
