@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmkv3nehgllbm"]
+[gd_scene load_steps=8 format=3 uid="uid://dmkv3nehgllbm"]
 
 [ext_resource type="PackedScene" uid="uid://bu36twabygvsk" path="res://Scenes/Player.tscn" id="1_hpc76"]
+[ext_resource type="PackedScene" uid="uid://du20yaw36biqi" path="res://Scenes/MainUI.tscn" id="1_tr2i4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cihdc"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -22,6 +23,8 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_hpc76"]
 
 [node name="MainScene" type="Node3D"]
+
+[node name="MainUI" parent="." instance=ExtResource("1_tr2i4")]
 
 [node name="Player" parent="." instance=ExtResource("1_hpc76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59739, 1.7582, 0)
@@ -76,7 +79,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_hpc76")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Map"]
-transform = Transform3D(1.27902, 0, 0, 0, 0.338028, 0, 0, 0, 1, 1.93557, 1.3167, 0)
+transform = Transform3D(1.27902, 0, 0, 0, 0.338028, 0, 0, 0, 1, 2.93557, 0.985801, 0)
 mesh = SubResource("BoxMesh_cihdc")
 skeleton = NodePath("../..")
 

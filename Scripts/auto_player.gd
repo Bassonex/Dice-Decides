@@ -4,11 +4,7 @@ extends CharacterBody3D
 @onready var down_ray: RayCast3D = $Navigation/DownRay
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@export var speed: float = 10.0
-@export var jump_up_force: float = 1.0
-@export var jump_forward_force: float = 1.0
-@export var jump_coldown: float = 5.0
-@export var shrink_force: float = 1.0
+
 
 var dir : Vector3
 var isJumped = false # default bool to check character jump state
@@ -23,8 +19,8 @@ func _physics_process(delta: float) -> void:
 		
 
 	if dir == Vector3.ZERO:
-		velocity.x = dir.x * speed +1
-		velocity.z = dir.z * speed
+		velocity.x = dir.x + 1 * Ga.speed * delta
+		#velocity.z = dir.z * Ga.speed * delta # not needed for now
 	
 	overpass_logic()
 	move_and_slide()
@@ -37,4 +33,4 @@ func overpass_logic(): # overpass every obstacle in game
 		
 func jump(): # simple push to velocity value
 	print("Jump up")
-	velocity.y += jump_up_force
+	velocity.y += Ga.jump_up_force
