@@ -23,14 +23,17 @@ glow_enabled = true
 
 [node name="MainScene" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tr2i4")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0.25, 0.0580127, 0.966506, -0.433013, 0.899519, 0.0580128, -6, 0, 0)
-shadow_enabled = true
+[node name="Player" parent="." instance=ExtResource("1_hpc76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59739, 1.7582, 0)
 
 [node name="Map" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
+environment = SubResource("Environment_tr2i4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0.25, 0.0580127, 0.966506, -0.433013, 0.899519, 0.0580128, -6, 0, 0)
+shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
 transform = Transform3D(10.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -43,7 +46,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_hpc76")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Map"]
-transform = Transform3D(1.27902, 0, 0, 0, 0.338028, 0, 0, 0, 1, -2.06417, 0.681559, 0)
+transform = Transform3D(1.27902, 0, 0, 0, 0.338028, 0, 0, 0, 1, -2.3145, 0.681559, 0)
 mesh = SubResource("BoxMesh_cihdc")
 skeleton = NodePath("../..")
 
@@ -81,9 +84,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MeshInstance3D5/StaticBody3D"]
 shape = SubResource("BoxShape3D_hpc76")
-
-[node name="Player" parent="." instance=ExtResource("1_hpc76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59739, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96512, 4)

@@ -10,18 +10,19 @@ height = 0.99634
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rpqav")
+speed = null
+jump_up_force = null
+jump_forward_force = null
+shrink_force = null
 
 [node name="Navigation" type="Node3D" parent="."]
 
 [node name="ForwardRay" type="RayCast3D" parent="Navigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.300031, 0)
-exclude_parent = false
 target_position = Vector3(0.5, 0, 0)
-collide_with_areas = true
 
 [node name="DownRay" type="RayCast3D" parent="Navigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.300031, 0)
-exclude_parent = false
 target_position = Vector3(0, -0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
